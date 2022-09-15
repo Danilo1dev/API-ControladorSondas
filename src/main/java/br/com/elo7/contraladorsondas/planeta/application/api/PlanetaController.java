@@ -51,6 +51,7 @@ public class PlanetaController implements PlanetaAPI {
 	public void patchAlteraPlaneta(UUID idPlaneta, @Valid PlanetaAlteracaoRequest planetaAlteracaoRequest) {
 		log.info("[inicia] PlanetaController - patchAlteraPlaneta");
 		log.info("[idPlaneta] {}", idPlaneta);
+		planetaService.patchAlteraPlaneta(idPlaneta, planetaAlteracaoRequest);
 		log.info("[finaliza] PlanetaController - patchAlteraPlaneta");
 	}
 }
