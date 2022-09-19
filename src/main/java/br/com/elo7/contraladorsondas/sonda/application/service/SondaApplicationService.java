@@ -1,14 +1,19 @@
 package br.com.elo7.contraladorsondas.sonda.application.service;
 
-import br.com.elo7.contraladorsondas.sonda.application.api.*;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import br.com.elo7.contraladorsondas.sonda.application.api.SondaAlteracaoRequest;
+import br.com.elo7.contraladorsondas.sonda.application.api.SondaDetalhadoResponse;
+import br.com.elo7.contraladorsondas.sonda.application.api.SondaListResponse;
+import br.com.elo7.contraladorsondas.sonda.application.api.SondaRequest;
+import br.com.elo7.contraladorsondas.sonda.application.api.SondaResponse;
 import br.com.elo7.contraladorsondas.sonda.application.repository.SondaRepository;
 import br.com.elo7.contraladorsondas.sonda.domain.Sonda;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.UUID;
 
 @Service
 @Log4j2
@@ -18,8 +23,8 @@ public class SondaApplicationService implements SondaService {
 
     @Override
     public SondaResponse criaSonda(SondaRequest sondaRequest) {
-        log.info("[inicia] SondaApplicationService - criaSonda");
-        Sonda sonda = sondaRepository.salva(new Sonda(sondaRequest));
+    	log.info("[inicia] SondaApplicationService - criaSonda");
+        Sonda sonda = sondaRepository.salva(new Sonda(sondaRequest.getNome()));
         log.info("[finaliza] SondaApplicationService - criaSonda");
         return SondaResponse.builder().idSonda(sonda.getIdSonda()).build();
     }
@@ -50,9 +55,9 @@ public class SondaApplicationService implements SondaService {
 
     @Override
     public void patchAlteraSonda(UUID idSonda, SondaAlteracaoRequest sondaAlteracaoRequest) {
-        log.info("[inicia] SondaApplicationService - patchAlteraSonda");
+    	log.info("[inicia] SondaApplicationService - patchAlteraSonda");
         Sonda sonda = sondaRepository.buscaSondaAtravesId(idSonda);
-        sonda.altera(sondaAlteracaoRequest);
+        sonda.renomeia(sondaAlteracaoRequest.getNome());
         sondaRepository.salva(sonda);
         log.info("[inicia] SondaApplicationService - patchAlteraSonda");
 
