@@ -3,12 +3,12 @@ package br.com.elo7.contraladorsondas.sonda.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +24,9 @@ public class Sonda {
     @NotBlank
     private String nome;
     
-    @NotNull
+    @Embedded
     private PosicaoSonda posicao;
+    
     private LocalDateTime criacao;
     private LocalDateTime alteracao;
     
