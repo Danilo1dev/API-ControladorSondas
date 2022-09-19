@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.stereotype.Service;
-
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaAlteracaoRequest;
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaDetalhadoResponse;
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaListResponse;
