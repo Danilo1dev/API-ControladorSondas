@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import br.com.elo7.contraladorsondas.planeta.application.api.pouso.PousoSondaPlanetaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,9 @@ public class Sonda {
     
     private LocalDateTime criacao;
     private LocalDateTime alteracao;
+    private LocalDateTime momentoPouso;
+    
+    private UUID idPlanetaPousada;
     
     public Sonda(String nome) {
     	this.nome = nome;
@@ -39,4 +44,10 @@ public class Sonda {
     	this.nome = nome;
     	this.alteracao = LocalDateTime.now();
     }
+
+	public void pousa(UUID idPlaneta, @Valid PousoSondaPlanetaRequest pousoRequest) {
+		this.idPlanetaPousada = idPlaneta;
+		this.posicao = pousoRequest.getPosicaoSonda();
+		this.momentoPouso = LocalDateTime.now();
+	}
 } 
