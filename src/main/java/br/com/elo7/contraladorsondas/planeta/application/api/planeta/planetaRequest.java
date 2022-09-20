@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Value;
 
 @Value
-public class planetaRequest {
+public class PlanetaRequest {
 	@NotBlank
 	private String nomePlaneta;
 	@NotNull
