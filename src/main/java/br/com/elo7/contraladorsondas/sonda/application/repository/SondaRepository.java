@@ -1,7 +1,6 @@
 package br.com.elo7.contraladorsondas.sonda.application.repository;
 
 import br.com.elo7.contraladorsondas.sonda.domain.Sonda;
-
 import java.util.List;
 import java.util.UUID;
 

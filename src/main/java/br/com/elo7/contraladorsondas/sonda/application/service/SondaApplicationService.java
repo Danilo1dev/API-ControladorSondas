@@ -2,9 +2,7 @@ package br.com.elo7.contraladorsondas.sonda.application.service;
 
 import java.util.List;
 import java.util.UUID;
-
 import org.springframework.stereotype.Service;
-
 import br.com.elo7.contraladorsondas.sonda.application.api.SondaAlteracaoRequest;
 import br.com.elo7.contraladorsondas.sonda.application.api.SondaDetalhadoResponse;
 import br.com.elo7.contraladorsondas.sonda.application.api.SondaListResponse;

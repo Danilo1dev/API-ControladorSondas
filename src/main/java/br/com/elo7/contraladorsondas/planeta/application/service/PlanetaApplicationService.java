@@ -8,7 +8,7 @@ import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaAlte
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaDetalhadoResponse;
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaListResponse;
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaResponse;
-import br.com.elo7.contraladorsondas.planeta.application.api.planeta.planetaRequest;
+import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaRequest;
 import br.com.elo7.contraladorsondas.planeta.application.repository.PlanetaRepository;
 import br.com.elo7.contraladorsondas.planeta.domain.Planeta;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class PlanetaApplicationService implements PlanetaService{
 	private final PlanetaRepository planetaRepository;
 
 	@Override
-	public PlanetaResponse criaPlaneta(planetaRequest planetaRequest) {
+	public PlanetaResponse criaPlaneta(PlanetaRequest planetaRequest) {
 		log.info("[inicia] PlanetaApplicationService - criaPlaneta");
 		Planeta planeta = planetaRepository.salva(new Planeta(planetaRequest));
 		log.info("[finaliza] PlanetaApplicationService - criaPlaneta");

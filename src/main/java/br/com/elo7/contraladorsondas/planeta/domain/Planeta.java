@@ -8,9 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaAlteracaoRequest;
-import br.com.elo7.contraladorsondas.planeta.application.api.planeta.planetaRequest;
+import br.com.elo7.contraladorsondas.planeta.application.api.planeta.PlanetaRequest;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,7 +30,7 @@ public class Planeta {
 	@NotNull
 	private int limiteY;
 
-	public Planeta(planetaRequest planetaRequest) {
+	public Planeta(PlanetaRequest planetaRequest) {
 		this.nomePlaneta = planetaRequest.getNomePlaneta();
 		this.limiteX = planetaRequest.getLimiteX();
 		this.limiteY = planetaRequest.getLimiteY();
