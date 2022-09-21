@@ -3,7 +3,6 @@ package br.com.elo7.contraladorsondas.sonda.application.service;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
-
 import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaAlteracaoRequest;
 import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaDetalhadoResponse;
 import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaListResponse;
@@ -59,6 +58,5 @@ public class SondaApplicationService implements SondaService {
         sonda.renomeia(sondaAlteracaoRequest.getNome());
         sondaRepository.salva(sonda);
         log.info("[inicia] SondaApplicationService - patchAlteraSonda");
-
     }
 }
