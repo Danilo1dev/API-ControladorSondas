@@ -1,14 +1,54 @@
 package br.com.elo7.contraladorsondas.sonda.domain;
 
-import lombok.Getter;
-
-@Getter
 public enum DirecaoSonda {
-	NORTE(0), LESTE(90), SUL(180), OESTE(270);
+	NORTE {
+		@Override
+		DirecaoSonda getEsquerda() {
+			return DirecaoSonda.OESTE;
+		}
 
-	private Integer grau;
+		@Override
+		DirecaoSonda getDireita() {
+			return DirecaoSonda.LESTE;
+		}
 
-	private DirecaoSonda(Integer grau) {
-		this.grau = grau;
-	}
+	},
+	LESTE {
+		@Override
+		DirecaoSonda getEsquerda() {
+			return DirecaoSonda.NORTE;
+		}
+
+		@Override
+		DirecaoSonda getDireita() {
+			return DirecaoSonda.SUL;
+		}
+	},
+	SUL {
+		@Override
+		DirecaoSonda getEsquerda() {
+			return DirecaoSonda.LESTE;
+		}
+
+		@Override
+		DirecaoSonda getDireita() {
+			return DirecaoSonda.OESTE;
+		}
+	},
+	OESTE {
+		@Override
+		DirecaoSonda getEsquerda() {
+			return DirecaoSonda.SUL;
+		}
+
+		@Override
+		DirecaoSonda getDireita() {
+			return DirecaoSonda.NORTE;
+		}
+
+	};
+
+	abstract DirecaoSonda getEsquerda();
+	abstract DirecaoSonda getDireita();
 }
+
