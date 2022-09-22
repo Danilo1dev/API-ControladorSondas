@@ -3,11 +3,11 @@ package br.com.elo7.contraladorsondas.sonda.application.service;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
-import br.com.elo7.contraladorsondas.sonda.application.api.SondaAlteracaoRequest;
-import br.com.elo7.contraladorsondas.sonda.application.api.SondaDetalhadoResponse;
-import br.com.elo7.contraladorsondas.sonda.application.api.SondaListResponse;
-import br.com.elo7.contraladorsondas.sonda.application.api.SondaRequest;
-import br.com.elo7.contraladorsondas.sonda.application.api.SondaResponse;
+import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaAlteracaoRequest;
+import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaDetalhadoResponse;
+import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaListResponse;
+import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaRequest;
+import br.com.elo7.contraladorsondas.sonda.application.api.sonda.SondaResponse;
 import br.com.elo7.contraladorsondas.sonda.application.repository.SondaRepository;
 import br.com.elo7.contraladorsondas.sonda.domain.Sonda;
 import lombok.RequiredArgsConstructor;
@@ -58,6 +58,5 @@ public class SondaApplicationService implements SondaService {
         sonda.renomeia(sondaAlteracaoRequest.getNome());
         sondaRepository.salva(sonda);
         log.info("[inicia] SondaApplicationService - patchAlteraSonda");
-
     }
 }

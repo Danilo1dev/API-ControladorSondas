@@ -2,6 +2,7 @@ package br.com.elo7.contraladorsondas.sonda.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.stream.Stream;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import br.com.elo7.contraladorsondas.planeta.application.api.pouso.PousoSondaPlanetaRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
+@Builder(access = AccessLevel.PACKAGE)
 public class Sonda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,5 +54,16 @@ public class Sonda {
 		this.idPlanetaPousada = idPlaneta;
 		this.posicao = pousoRequest.getPosicaoSonda();
 		this.momentoPouso = LocalDateTime.now();
+	}
+
+	public void recebeComando(String comando) {
+		Stream.of(comando.split(""))
+		.map(c -> ComandoSonda.buscaComandoAtravesValue(c))
+		.forEach(c -> executaComando(c));
+	}
+
+	private void executaComando(ComandoSonda c) {
+		this.getPosicao().mudaDirecao(c);
+		this.getPosicao().movimenta(c);
 	}
 } 
