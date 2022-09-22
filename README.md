@@ -46,5 +46,9 @@ Segue o enunciado original:
 ## Develop
 Contem todo projeto implementado.
 
+## Teste
+
 - Link para [(testar aplicação local)](http://localhost:8080/controlador-sondas/api/public/swagger-ui/index.html#/).
+
+- Camada de teste Junit em SondaTest.java
 
