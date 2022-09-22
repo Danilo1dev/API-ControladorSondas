@@ -37,4 +37,33 @@ class SondaTest {
 		log.info(posicaoFinal);
 		assertEquals(posicaoFinal, sonda.getPosicao());
 	}
+	
+	@Test
+	void deveraExeceutarComandosQuandoForUmaStringDeComandosValidosTeste2() {
+		Sonda sonda = Sonda.builder()
+		.nome("SONDA 2")
+		.build();
+		PousoSondaPlanetaRequest pousoSonda1 = PousoSondaPlanetaRequest.builder()
+				.posicaoSonda(PosicaoSonda.builder()
+						.posicaoX(3)
+						.posicaoY(3)
+						.direcao(DirecaoSonda.LESTE)
+						.build())
+				.build();
+		
+		sonda.pousa(UUID.randomUUID(), pousoSonda1);
+		
+		sonda.recebeComando("MMRMMRMRRML");
+		
+		PosicaoSonda posicaoFinal = PosicaoSonda.builder()
+				.posicaoX(5)
+				.posicaoY(1)
+				.direcao(DirecaoSonda.NORTE)
+				.build();
+		
+		log.info("deveraExeceutarComandosQuandoForUmaStringDeComandosValidosTeste2");
+		log.info(sonda.getPosicao());
+		log.info(posicaoFinal);
+		assertEquals(posicaoFinal, sonda.getPosicao());
+	}
 }
