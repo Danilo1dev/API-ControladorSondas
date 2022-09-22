@@ -43,7 +43,7 @@ class SondaTest {
 		Sonda sonda = Sonda.builder()
 		.nome("SONDA 2")
 		.build();
-		PousoSondaPlanetaRequest pousoSonda1 = PousoSondaPlanetaRequest.builder()
+		PousoSondaPlanetaRequest pousoSonda2 = PousoSondaPlanetaRequest.builder()
 				.posicaoSonda(PosicaoSonda.builder()
 						.posicaoX(3)
 						.posicaoY(3)
@@ -51,7 +51,7 @@ class SondaTest {
 						.build())
 				.build();
 		
-		sonda.pousa(UUID.randomUUID(), pousoSonda1);
+		sonda.pousa(UUID.randomUUID(), pousoSonda2);
 		
 		sonda.recebeComando("MMRMMRMRRML");
 		
