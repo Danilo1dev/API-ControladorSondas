@@ -28,7 +28,7 @@ A Api Planeta contem domino de limiteX e limiteY para delimitar o tamanho do ter
 
 A Api Sonda contem dominio de direção e posiçãoX e posiçãoY .
 
-## Powered By
+## Implementação
 
 -Spring Boot 2.7.3;
 
@@ -46,5 +46,5 @@ Segue o enunciado original:
 ## Develop
 Contem todo projeto implementado.
 
-- Link para [Testar aplicação local](http://localhost:8080/controlador-sondas/api/public/swagger-ui/index.html#/).
+- Link para [(testar aplicação local)](http://localhost:8080/controlador-sondas/api/public/swagger-ui/index.html#/).
 
